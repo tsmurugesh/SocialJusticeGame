@@ -1,2 +1,4 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
 0,StartGame,Instructions,,Start Game,100,650,yes
+0,MoveToTeen,ChildMind,,Move to Teen,100,650,yes
+

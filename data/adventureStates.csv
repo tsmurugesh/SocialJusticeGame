@@ -4,5 +4,7 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 2,Start,PNGRoom,assets/town.png,
 3,ChildClassroom,PNGRoom,assets/child_classroom.png,
 4,ChildPark,PNGRoom,assets/child_park.png,
-5,Kitchen,PNGRoom,assets/kitchen.png,
+5,ChildKitchen,PNGRoom,assets/kitchen.png,
 6,ChildBedroom,PNGRoom,assets/child_bedroom.png,
+7,ChildMind,PNGRoom,assets/child_mind.png,
+8,TeenKitchen,PNGRoom,assets/teenkitchen.png,
