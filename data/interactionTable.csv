@@ -21,14 +21,13 @@ TeenSchool2,,,,,E,TeenSchool1
 TeenBedroom,,,,,E,TeenKitchen
 TeenBedroom,,,,,W,TeenMind
 TeenMind,,,,,E,TeenBedroom
-AdultApt,,,,,S,AdultSchool
 AdultApt,,,,,E,AdultParty
 AdultApt,,,,,W,AdultBedroom
 AdultBedroom,,,,,W,AdultMind
 AdultBedroom,,,,,E,AdultApt
 AdultMind,,,,,M,AdultBedroom
 AdultParty,,,,,W,AdultApt
-AdultSchool,,,,,N,AdultApt
+
 
 
 
