@@ -319,8 +319,8 @@ class ChildSchoolRoom extends PNGRoom {
         talkedToWeirdNPC = false;
 
         // NPC position
-        //this.drawX = width / 4 + 100;
-        //this.drawY = height / 2 - 40;
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
 
         // load the animation just one time
         this.NPC1 = createSprite(width / 4 + 100, height / 2 - 40, 100, 100);

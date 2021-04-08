@@ -3,6 +3,9 @@ Splash,,,mouseReleased,,,Instructions
 Instructions,,,,StartGame,,Start
 ChildMind,,,,MoveToTeen,,TeenKitchen
 TeenMind,,,,MoveToAdult,,AdultApt
+ChildBedroom,,,,MoveToChildMind,,ChildMind
+TeenBedroom,,,,MoveToTeenMind,,TeenMind
+AdultBedroom,,,,MoveToAdultMind,,AdultMind
 Start,,,,,N,ChildClassroom
 Start,,,,,W,ChildKitchen
 Start,,,,,E,ChildPark
@@ -11,21 +14,15 @@ ChildPark,,,,,W,Start
 ChildKitchen,,,,,E,Start
 ChildKitchen,,,,,W,ChildBedroom
 ChildBedroom,,,,,E,ChildKitchen
-ChildBedroom,,,,,W,ChildMind
-ChildMind,,,,,E,ChildBedroom
 TeenKitchen,,,,,N,TeenSchool1
 TeenKitchen,,,,,W,TeenBedroom
 TeenSchool1,,,,,W,TeenSchool2
 TeenSchool1,,,,,S,TeenKitchen
 TeenSchool2,,,,,E,TeenSchool1
 TeenBedroom,,,,,E,TeenKitchen
-TeenBedroom,,,,,W,TeenMind
-TeenMind,,,,,E,TeenBedroom
 AdultApt,,,,,E,AdultParty
 AdultApt,,,,,W,AdultBedroom
-AdultBedroom,,,,,W,AdultMind
 AdultBedroom,,,,,E,AdultApt
-AdultMind,,,,,M,AdultBedroom
 AdultParty,,,,,W,AdultApt
 
 

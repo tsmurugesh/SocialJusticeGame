@@ -2,4 +2,7 @@ ID,Name,State,PNGFilename,Text,x,y,visible
 0,StartGame,Instructions,,Start Game,100,650,yes
 1,MoveToTeen,ChildMind,,Move to Teen,100,650,yes
 2,MoveToAdult,TeenMind,,Move to Adult,100,650,yes
+3,MoveToChildMind,ChildBedroom,,Enter Your Thoughts?,100,650,yes
+4,MoveToTeenMind,TeenBedroom,,Enter Your Thoughts?,100,650,yes
+5,MoveToAdultMind,AdultBedroom,,Enter Your Thoughts?,100,650,yes
 
