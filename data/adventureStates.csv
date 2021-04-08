@@ -8,3 +8,14 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 6,ChildBedroom,PNGRoom,assets/child_bedroom.png,
 7,ChildMind,PNGRoom,assets/child_mind.png,
 8,TeenKitchen,PNGRoom,assets/teenkitchen.png,
+9,TeenBedroom,PNGRoom,assets/teen_bedroom.png,
+10,TeenSchool1,PNGRoom,assets/teen_school1.png,
+11,TeenSchool2,PNGRoom,assets/teen_school2.png,
+12,TeenMind,PNGRoom,assets/teen_mind.png,
+13,AdultApt,PNGRoom,assets/adult_apt.png,
+14,AdultBedroom,PNGRoom,assets/adult_bedroom.png,
+15,AdultParty,PNGRoom,assets/adult_party.png,
+16,AdultSchool,PNGRoom,assets/adult_school.png,
+17,AdultMind,PNGRoom,assets/adult_mind.png,
+
+
