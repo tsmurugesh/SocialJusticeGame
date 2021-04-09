@@ -1,6 +1,7 @@
 CurrentState,KeyTyped,KeyCode,MouseEvent,ClickableName,MapDirection,NextState
 Splash,,,mouseReleased,,,Instructions
-Instructions,,,,StartGame,,Start
+Instructions,,,,AboutNext,,Instructions2
+Instructions2,,,,StartGame,,Start
 ChildMind,,,,MoveToTeen,,TeenKitchen
 TeenMind,,,,MoveToAdult,,AdultApt
 ChildBedroom,,,,MoveToChildMind,,ChildMind

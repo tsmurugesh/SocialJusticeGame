@@ -76,7 +76,8 @@ function draw() {
 
     // No avatar for Splash screen or Instructions screen
     if (adventureManager.getStateName() !== "Splash" &&
-        adventureManager.getStateName() !== "Instructions") {
+        adventureManager.getStateName() !== "Instructions" &&
+        adventureManager.getStateName() !== "Instructions2" ) {
 
         // responds to keydowns
         moveSprite();
@@ -137,15 +138,15 @@ function setupClickables() {
 
 // tint when mouse is over
 clickableButtonHover = function () {
-    this.color = "#AA33AA";
+    this.color = "#d1bfb1";
     this.noTint = false;
-    this.tint = "#FF0000";
+    this.tint = "#d1bfb1";
 }
 
 // color a light gray if off
 clickableButtonOnOutside = function () {
     // backto our gray color
-    this.color = "#AAAAAA";
+    this.color = "#FFF";
 }
 
 clickableButtonPressed = function () {
