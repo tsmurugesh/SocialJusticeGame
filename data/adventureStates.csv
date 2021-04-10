@@ -7,7 +7,7 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 5,ChildPark,ParkRoom,assets/child_park.png,assets/child_park_cl.csv,
 6,ChildKitchen,PNGRoom,assets/kitchen.png,assets/kitchen_cl.csv,
 7,ChildBedroom,PNGRoom,assets/child_bedroom.png,assets/child_bedroom_cl.csv,
-8,ChildMind,PNGRoom,assets/child_mind.png,assets/child_mind_cl.csv,
+8,ChildMind,ChildMindRoom,assets/child_mind.png,assets/child_mind_cl.csv,
 9,TeenKitchen,PNGRoom,assets/teenkitchen.png,assets/kitchen_cl.csv,
 10,TeenBedroom,PNGRoom,assets/teen_bedroom.png,assets/child_bedroom_cl.csv,
 11,TeenSchool1,PNGRoom,assets/teen_school1.png,assets/teen_school1_cl.csv,

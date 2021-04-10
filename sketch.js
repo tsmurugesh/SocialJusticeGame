@@ -303,7 +303,7 @@ class ParkRoom extends PNGRoom {
 
 
         if (this.talkBubble !== null && talkedToWeirdNPC === true) {
-            image(this.talkBubble, this.drawX + 60, this.drawY - 350);
+            image(this.talkBubble, 500, 50);
         }
     }
 }
@@ -338,7 +338,7 @@ class ChildSchoolRoom extends PNGRoom {
         // pass to superclass
         super.load();
 
-        this.talkBubble = loadImage('assets/talkBubble.png');
+        this.talkBubble = loadImage('assets/text_child_school.png');
 
         //      // turn off buttons
         //      for( let i = answer1Index; i <= answer6Index; i++ ) {
@@ -373,7 +373,87 @@ class ChildSchoolRoom extends PNGRoom {
 
 
         if (this.talkBubble !== null && talkedToWeirdNPC === true) {
-            image(this.talkBubble, this.drawX + 60, this.drawY - 350);
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+//---child mind room testing npc --//
+class ChildMindRoom extends PNGRoom {
+    // preload() gets called once upon startup
+    // We load ONE animation and create 20 NPCs
+    // 
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+//        this.drawX = width / 4 + 100;
+//        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite( width / 2, 250, 100, 200);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/couple1.png', 'assets/NPCs/couple2.png'));
+        
+        
+        this.NPC2 = createSprite(150, height/2, 100, 100);
+        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'))
+//        
+//        this.NPC3 = createSprite( width+300, height/2+100, 100, 100);
+//        this.NPC3.addAnimation('regular', loadAnimation('assets/NPCs/bear1_1.png', 'assets/NPCs/bear1_2.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_child_mind1.png');
+        this.talkBubble2 = loadImage('assets/text_child_mind2.png');
+
+        //      // turn off buttons
+        //      for( let i = answer1Index; i <= answer6Index; i++ ) {
+        //       clickables[i].visible = false;
+        //      }
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        this.talkBubble2 = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+
+        // draws all the sprites in the group
+        //this.weirdNPCSprite.draw();
+        drawSprite(this.NPC1);
+        drawSprite(this.NPC2);
+//        drawSprite(this.NPC3);
+        // draws all the sprites in the group - 
+        //drawSprites(this.weirdNPCgroup);//.draw();
+
+        // checks for overlap with ANY sprite in the group, if this happens
+        // talk() function gets called
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+        playerSprite.overlap(this.NPC2, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+        if (this.talkBubble2 !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble2, 500, 210);
         }
     }
 }
