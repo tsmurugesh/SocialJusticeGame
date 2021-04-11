@@ -400,6 +400,7 @@ class ChildMindRoom extends PNGRoom {
         
         this.NPC2 = createSprite(150, height/2, 100, 100);
         this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/bearNPC1.png', 'assets/NPCs/bearNPC2.png'))
+        
 //        
 //        this.NPC3 = createSprite( width+300, height/2+100, 100, 100);
 //        this.NPC3.addAnimation('regular', loadAnimation('assets/NPCs/bear1_1.png', 'assets/NPCs/bear1_2.png'));
