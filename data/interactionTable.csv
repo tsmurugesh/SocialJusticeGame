@@ -17,9 +17,7 @@ ChildKitchen,,,,,W,ChildBedroom
 ChildBedroom,,,,,E,ChildKitchen
 TeenKitchen,,,,,N,TeenSchool1
 TeenKitchen,,,,,W,TeenBedroom
-TeenSchool1,,,,,W,TeenSchool2
 TeenSchool1,,,,,S,TeenKitchen
-TeenSchool2,,,,,E,TeenSchool1
 TeenBedroom,,,,,E,TeenKitchen
 AdultApt,,,,,E,AdultParty
 AdultApt,,,,,W,AdultBedroom

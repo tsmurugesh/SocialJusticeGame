@@ -457,3 +457,442 @@ class ChildMindRoom extends PNGRoom {
         }
     }
 }
+
+//---teen kitchen testing npc --//
+class TeenKitchen extends PNGRoom {
+    // preload() gets called once upon startup
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite(width / 4, height / 2 - 60, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_teen_kitchen.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+        drawSprite(this.NPC1)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+//---teen bedroom testing npc --//
+class TeenBedroom extends PNGRoom {
+    // preload() gets called once upon startup
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite((width / 2)+250, 170, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/compNPC1.png', 'assets/NPCs/compNPC2.png', 'assets/NPCs/compNPC3.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_teen_bedroom.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+        drawSprite(this.NPC1)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+//---teen bedroom testing npc --//
+class TeenMind extends PNGRoom {
+    // preload() gets called once upon startup
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite((width / 2)+250, 170, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/glitchNPC1.png', 'assets/NPCs/glitchNPC2.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_teen_mind.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+        drawSprite(this.NPC1)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+//---park  testing npc --//
+class TeenSchoolRoom extends PNGRoom {
+    // preload() gets called once upon startup
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4;
+        this.drawY = height / 2 + 100;
+
+        // load the animation just one time
+        this.NPC1 = createSprite(this.drawX, this.drawY, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+        
+        
+        // randomly places npcs pf this group all over, nothing happens when interacted
+        
+        this.NPCAnimation = loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png');
+
+        // this is a type from p5play, so we can do operations on all sprites
+        // at once
+        this.NPCgroup = new Group;
+
+        // change this number for more or less
+        this.numNPCs = 3;
+
+        // is an array of sprites, note we keep this array because
+        // later I will add movement to all of them
+        this.NPCSprites = [];
+
+        // this will place them randomly in the room
+        for (let i = 0; i < this.numNPCs; i++) {
+            // random x and random y poisiton for each sprite
+            let randX = random(100, width - 100);
+            let randY = random(100, height - 100);
+
+            // create the sprite
+            this.NPCSprites[i] = createSprite(randX, randY, 40, 40);
+
+            // add the animation to it (important to load the animation just one time)
+            this.NPCSprites[i].addAnimation('regular', this.NPCAnimation);
+
+            // add to the group
+            this.NPCgroup.add(this.NPCSprites[i]);
+        }
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_teen_school.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+
+        // draws all the sprites in the group
+        this.NPCgroup.draw();
+        drawSprite(this.NPC1)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+//---adult apt  testing npc --//
+class AdultAptRoom extends PNGRoom {
+    // preload() gets called once upon startup
+    // We load ONE animation and create 20 NPCs
+    // 
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite(width /2, height / 2-60, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+        
+        
+        this.NPC2 = createSprite(width / 2- 100, height/2-60, 100, 100);
+        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_adult_apt.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+
+        // draws all the sprites in the group
+        //this.weirdNPCSprite.draw();
+        drawSprite(this.NPC1)
+        drawSprite(this.NPC2)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+
+//---adult party  testing npc --//
+class AdultPartyRoom extends PNGRoom {
+    // preload() gets called once upon startup
+    // We load ONE animation and create 20 NPCs
+    // 
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+//        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+        
+        // randomly places npcs pf this group all over, nothing happens when interacted
+        
+        this.NPCAnimation = loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png');
+
+        // this is a type from p5play, so we can do operations on all sprites
+        // at once
+        this.NPCgroup = new Group;
+
+        // change this number for more or less
+        this.numNPCs = 4;
+
+        // is an array of sprites, note we keep this array because
+        // later I will add movement to all of them
+        this.NPCSprites = [];
+
+        // this will place them randomly in the room
+        for (let i = 0; i < this.numNPCs; i++) {
+            // random x and random y poisiton for each sprite
+            let randX = random(width/2-50, width - 100);
+            let randY = random(height/2, height - 100);
+
+            // create the sprite
+            this.NPCSprites[i] = createSprite(randX, randY, 40, 40);
+
+            // add the animation to it (important to load the animation just one time)
+            this.NPCSprites[i].addAnimation('regular', this.NPCAnimation);
+
+            // add to the group
+            this.NPCgroup.add(this.NPCSprites[i]);
+        }
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_adult_party.png');
+
+        //      // turn off buttons
+        //      for( let i = answer1Index; i <= answer6Index; i++ ) {
+        //       clickables[i].visible = false;
+        //      }
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+
+        // draws all the sprites in the group
+        //this.weirdNPCSprite.draw();
+        this.NPCgroup.draw();
+//        drawSprite(this.NPC1)
+        // draws all the sprites in the group - 
+        //drawSprites(this.weirdNPCgroup);//.draw();
+
+        // checks for overlap with ANY sprite in the group, if this happens
+        // talk() function gets called
+        playerSprite.overlap(this.NPCgroup, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
+
+
+//---adult apt  testing npc --//
+class AdultMindRoom extends PNGRoom {
+    // preload() gets called once upon startup
+    // We load ONE animation and create 20 NPCs
+    // 
+    preload() {
+        // this is our image, we will load when we enter the room
+        this.talkBubble = null;
+        this.talkedToNPC = false; // only draw when we run into it
+        talkedToWeirdNPC = false;
+
+        // NPC position
+        this.drawX = width / 4 + 100;
+        this.drawY = height / 2 - 40;
+
+        // load the animation just one time
+        this.NPC1 = createSprite(width /2, height / 2-300, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+
+
+    }
+
+    load() {
+        // pass to superclass
+        super.load();
+
+        this.talkBubble = loadImage('assets/text_adult_mind.png');
+    }
+
+    // clears up memory
+    unload() {
+        super.unload();
+
+        this.talkBubble = null;
+        talkedToWeirdNPC = false;
+        print("unloading AHA room");
+    }
+
+    // pass draw function to superclass, then draw sprites, then check for overlap
+    draw() {
+        // PNG room draw
+        super.draw();
+
+        // draws all the sprites in the group
+        //this.weirdNPCSprite.draw();
+        drawSprite(this.NPC1)
+        playerSprite.overlap(this.NPC1, talkToWeirdy);
+
+
+        if (this.talkBubble !== null && talkedToWeirdNPC === true) {
+            image(this.talkBubble, 500, 50);
+        }
+    }
+}
