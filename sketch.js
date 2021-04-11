@@ -228,12 +228,12 @@ class ParkRoom extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(this.drawX, this.drawY, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/dNPC1.png', 'assets/NPCs/dNPC1.png'));
         
         
         // randomly places npcs pf this group all over, nothing happens when interacted
         
-        this.NPCAnimation = loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png');
+        this.NPCAnimation = loadAnimation('assets/NPCs/bNPC1.png', 'assets/NPCs/bNPC1.png');
 
         // this is a type from p5play, so we can do operations on all sprites
         // at once
@@ -328,8 +328,8 @@ class ChildSchoolRoom extends PNGRoom {
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
         
         
-        this.NPC2 = createSprite(width-100, height/2, 100, 100);
-        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+//        this.NPC2 = createSprite(width-100, height/2, 100, 100);
+//        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
 
 
     }
@@ -363,7 +363,7 @@ class ChildSchoolRoom extends PNGRoom {
         // draws all the sprites in the group
         //this.weirdNPCSprite.draw();
         drawSprite(this.NPC1)
-        drawSprite(this.NPC2)
+        //drawSprite(this.NPC2)
         // draws all the sprites in the group - 
         //drawSprites(this.weirdNPCgroup);//.draw();
 
@@ -399,7 +399,7 @@ class ChildMindRoom extends PNGRoom {
         
         
         this.NPC2 = createSprite(150, height/2, 100, 100);
-        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'))
+        this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/bearNPC1.png', 'assets/NPCs/bearNPC2.png'))
 //        
 //        this.NPC3 = createSprite( width+300, height/2+100, 100, 100);
 //        this.NPC3.addAnimation('regular', loadAnimation('assets/NPCs/bear1_1.png', 'assets/NPCs/bear1_2.png'));
@@ -473,7 +473,7 @@ class TeenKitchen extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(width / 4, height / 2 - 60, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/cNPC1.png', 'assets/NPCs/cNPC1.png'));
 
 
     }
@@ -623,12 +623,12 @@ class TeenSchoolRoom extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(this.drawX, this.drawY, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/bNPC1.png', 'assets/NPCs/bNPC1.png'));
         
         
         // randomly places npcs pf this group all over, nothing happens when interacted
         
-        this.NPCAnimation = loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png');
+        this.NPCAnimation = loadAnimation('assets/NPCs/dNPC1.png', 'assets/NPCs/dNPC1.png');
 
         // this is a type from p5play, so we can do operations on all sprites
         // at once
@@ -709,11 +709,11 @@ class AdultAptRoom extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(width /2, height / 2-60, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/eNPC1.png', 'assets/NPCs/eNPC1.png'));
         
         
         this.NPC2 = createSprite(width / 2- 100, height/2-60, 100, 100);
-        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+        this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/fNPC1.png', 'assets/NPCs/fNPC1.png'));
 
 
     }
@@ -766,7 +766,7 @@ class AdultPartyRoom extends PNGRoom {
         
         // randomly places npcs pf this group all over, nothing happens when interacted
         
-        this.NPCAnimation = loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png');
+        this.NPCAnimation = loadAnimation('assets/NPCs/aNPC1.png', 'assets/NPCs/aNPC1.png');
 
         // this is a type from p5play, so we can do operations on all sprites
         // at once
