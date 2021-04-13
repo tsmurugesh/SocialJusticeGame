@@ -1,9 +1,8 @@
 ID,Name,State,PNGFilename,Text,x,y,visible
 0,AboutNext,Instructions,,Next,780,620,yes
-0,StartGame,Instructions2,,Start Game,780,620,yes
-1,MoveToTeen,ChildMind,,Go to Teen Years,80,620,yes
-2,MoveToAdult,TeenMind,,Go to Adult Years,80,620,yes
-3,MoveToChildMind,ChildBedroom,,Enter Thoughts?,80,620,yes
-4,MoveToTeenMind,TeenBedroom,,Enter Thoughts?,80,620,yes
-5,MoveToAdultMind,AdultBedroom,,Enter Thoughts?,80,620,yes
-
+1,StartGame,Instructions2,,Start Game,780,620,yes
+2,MoveToTeen,ChildMind,,Go to Teen Years,80,620,yes
+3,MoveToAdult,TeenMind,,Go to Adult Years,80,620,yes
+4,MoveToChildMind,ChildBedroom,,Enter Thoughts?,80,620,yes
+5,MoveToTeenMind,TeenBedroom,,Enter Thoughts?,80,620,yes
+6,MoveToAdultMind,AdultBedroom,,Enter Thoughts?,80,620,yes

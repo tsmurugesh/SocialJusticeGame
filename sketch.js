@@ -859,8 +859,8 @@ class AdultMindRoom extends PNGRoom {
         this.drawY = height / 2 - 40;
 
         // load the animation just one time
-        this.NPC1 = createSprite(width /2, height / 2-300, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
+        this.NPC1 = createSprite(width /2, height / 2-180, 130, 130);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/adultNPC1.png', 'assets/NPCs/adultNPC1.png'));
 
 
     }
