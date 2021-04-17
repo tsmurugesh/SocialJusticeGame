@@ -6,3 +6,4 @@ ID,Name,State,PNGFilename,Text,x,y,visible
 4,MoveToChildMind,ChildBedroom,,Enter Thoughts?,80,620,yes
 5,MoveToTeenMind,TeenBedroom,,Enter Thoughts?,80,620,yes
 6,MoveToAdultMind,AdultBedroom,,Enter Thoughts?,80,620,yes
+7,FinishGame,AdultMind,,Finish Game,780,620,yes

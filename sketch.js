@@ -1,6 +1,6 @@
 /***********************************************************************************
-  MoodyMaze
-  by Scott Kildall
+  Social Justice Adventure Game
+  by Tanvi Murugesh
 
   Uses the p5.2DAdventure.js class 
   
@@ -25,8 +25,9 @@ var clickables; // an array of clickable objects
 
 
 
-// some globals we use throughout...
+// NPC talking global variables
 var talkedToWeirdNPC = false;
+var talkedToBearNPC = false;
 
 // indexes into the clickable array (constants)
 const playGameIndex = 0;
@@ -77,7 +78,8 @@ function draw() {
     // No avatar for Splash screen or Instructions screen
     if (adventureManager.getStateName() !== "Splash" &&
         adventureManager.getStateName() !== "Instructions" &&
-        adventureManager.getStateName() !== "Instructions2" ) {
+        adventureManager.getStateName() !== "Instructions2" &&
+        adventureManager.getStateName() !== "Finish") {
 
         // responds to keydowns
         moveSprite();
@@ -99,7 +101,6 @@ function keyPressed() {
     // dispatch key events for adventure manager to move from state to 
     // state or do special actions - this can be disabled for NPC conversations
     // or text entry   
-
     // dispatch to elsewhere
     adventureManager.keyPressed(key);
 }
@@ -143,9 +144,7 @@ clickableButtonHover = function () {
     this.tint = "#d1bfb1";
 }
 
-// color a light gray if off
 clickableButtonOnOutside = function () {
-    // backto our gray color
     this.color = "#FFF";
 }
 
@@ -154,9 +153,18 @@ clickableButtonPressed = function () {
     // so they route to the adventure manager to do this
     adventureManager.clickablePressed(this.name);
 }
-
+// code to check if NPC was talked to, if false, sets to true
 function talkToWeirdy() {
     if (talkedToWeirdNPC === false) {
+        print("turning them on");
+        talkedToWeirdNPC = true;
+        print("talked to weidy");
+    }
+}
+
+// code to check if NPC was talked to, if false, sets to true
+function talkToBear() {
+    if (talkedToBearNPC === false) {
         print("turning them on");
 
         //    // turn on visibility for buttons
@@ -164,8 +172,8 @@ function talkToWeirdy() {
         //      clickables[i].visible = true;
         //    }
 
-        talkedToWeirdNPC = true;
-        print("talked to weidy");
+        talkedToBearNPC = true;
+        print("talked to Bear");
     }
 }
 
@@ -194,7 +202,6 @@ class InstructionsScreen extends PNGRoom {
     // call the PNGRoom superclass's draw function to draw the background image
     // and draw our instructions on top of this
     draw() {
-        // tint down background image so text is more readable
         tint(128);
 
         // this calls PNGRoom.draw()
@@ -211,7 +218,7 @@ class InstructionsScreen extends PNGRoom {
 }
 
 
-//---park  testing npc --//
+//---Child Phase: Park, has NPCS --//
 class ParkRoom extends PNGRoom {
     // preload() gets called once upon startup
     // We load ONE animation and create 20 NPCs
@@ -228,11 +235,11 @@ class ParkRoom extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(this.drawX, this.drawY, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/dNPC1.png', 'assets/NPCs/dNPC1.png'));
-        
-        
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/dNPC1.png', 'assets/NPCs/dNPC2.png'));
+
+
         // randomly places npcs pf this group all over, nothing happens when interacted
-        
+
         this.NPCAnimation = loadAnimation('assets/NPCs/bNPC1.png', 'assets/NPCs/bNPC1.png');
 
         // this is a type from p5play, so we can do operations on all sprites
@@ -308,7 +315,7 @@ class ParkRoom extends PNGRoom {
     }
 }
 
-//---child classroom testing npc --//
+//---Child Phase: Classroom, has NPCS --//
 class ChildSchoolRoom extends PNGRoom {
     // preload() gets called once upon startup
     // We load ONE animation and create 20 NPCs
@@ -326,10 +333,10 @@ class ChildSchoolRoom extends PNGRoom {
         // load the animation just one time
         this.NPC1 = createSprite(width / 4 + 100, height / 2 - 40, 100, 100);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/teacherNPC1.png', 'assets/NPCs/teacherNPC2.png'));
-        
-        
-//        this.NPC2 = createSprite(width-100, height/2, 100, 100);
-//        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
+
+
+        //        this.NPC2 = createSprite(width-100, height/2, 100, 100);
+        //        this.NPC2.addAnimation('regular', loadAnimation('assets/avatars/child1.png', 'assets/avatars/child4.png'));
 
 
     }
@@ -378,7 +385,7 @@ class ChildSchoolRoom extends PNGRoom {
     }
 }
 
-//---child mind room testing npc --//
+//---Child Phase: Mind, has NPCS --//
 class ChildMindRoom extends PNGRoom {
     // preload() gets called once upon startup
     // We load ONE animation and create 20 NPCs
@@ -386,24 +393,14 @@ class ChildMindRoom extends PNGRoom {
     preload() {
         // this is our image, we will load when we enter the room
         this.talkBubble = null;
-        this.talkedToNPC = false; // only draw when we run into it
+        this.talkedToNPC = false; 
         talkedToWeirdNPC = false;
-
-        // NPC position
-//        this.drawX = width / 4 + 100;
-//        this.drawY = height / 2 - 40;
-
-        // load the animation just one time
-        this.NPC1 = createSprite( width / 2, 250, 100, 200);
+        this.NPC1 = createSprite(width / 2, 250, 100, 200);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/couple1.png', 'assets/NPCs/couple2.png'));
-        
-        
-        this.NPC2 = createSprite(150, height/2, 100, 100);
-        this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/bearNPC1.png', 'assets/NPCs/bearNPC2.png'))
-        
-//        
-//        this.NPC3 = createSprite( width+300, height/2+100, 100, 100);
-//        this.NPC3.addAnimation('regular', loadAnimation('assets/NPCs/bear1_1.png', 'assets/NPCs/bear1_2.png'));
+
+
+        this.NPC2 = createSprite(150, height / 2, 100, 100);
+        this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/bearNPC1.png', 'assets/NPCs/bearNPC2.png'));
 
 
     }
@@ -414,11 +411,6 @@ class ChildMindRoom extends PNGRoom {
 
         this.talkBubble = loadImage('assets/text_child_mind1.png');
         this.talkBubble2 = loadImage('assets/text_child_mind2.png');
-
-        //      // turn off buttons
-        //      for( let i = answer1Index; i <= answer6Index; i++ ) {
-        //       clickables[i].visible = false;
-        //      }
     }
 
     // clears up memory
@@ -435,31 +427,22 @@ class ChildMindRoom extends PNGRoom {
     draw() {
         // PNG room draw
         super.draw();
-
-        // draws all the sprites in the group
-        //this.weirdNPCSprite.draw();
         drawSprite(this.NPC1);
         drawSprite(this.NPC2);
-//        drawSprite(this.NPC3);
-        // draws all the sprites in the group - 
-        //drawSprites(this.weirdNPCgroup);//.draw();
-
-        // checks for overlap with ANY sprite in the group, if this happens
-        // talk() function gets called
         playerSprite.overlap(this.NPC1, talkToWeirdy);
-        playerSprite.overlap(this.NPC2, talkToWeirdy);
+        playerSprite.overlap(this.NPC2, talkToBear);
 
 
         if (this.talkBubble !== null && talkedToWeirdNPC === true) {
             image(this.talkBubble, 500, 50);
         }
-        if (this.talkBubble2 !== null && talkedToWeirdNPC === true) {
+        if (this.talkBubble2 !== null && talkedToBearNPC === true) {
             image(this.talkBubble2, 500, 210);
         }
     }
 }
 
-//---teen kitchen testing npc --//
+//---Teen Phase: Kitchen, has NPCS --//
 class TeenKitchen extends PNGRoom {
     // preload() gets called once upon startup
     preload() {
@@ -474,7 +457,7 @@ class TeenKitchen extends PNGRoom {
 
         // load the animation just one time
         this.NPC1 = createSprite(width / 4, height / 2 - 60, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/cNPC1.png', 'assets/NPCs/cNPC1.png'));
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/cNPC1.png', 'assets/NPCs/cNPC2.png'));
 
 
     }
@@ -509,7 +492,7 @@ class TeenKitchen extends PNGRoom {
     }
 }
 
-//---teen bedroom testing npc --//
+//---Teen Phase: bedroom, has NPCS --//
 class TeenBedroom extends PNGRoom {
     // preload() gets called once upon startup
     preload() {
@@ -523,7 +506,7 @@ class TeenBedroom extends PNGRoom {
         this.drawY = height / 2 - 40;
 
         // load the animation just one time
-        this.NPC1 = createSprite((width / 2)+250, 170, 100, 100);
+        this.NPC1 = createSprite((width / 2) + 250, 170, 100, 100);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/compNPC1.png', 'assets/NPCs/compNPC2.png', 'assets/NPCs/compNPC3.png'));
 
 
@@ -559,7 +542,7 @@ class TeenBedroom extends PNGRoom {
     }
 }
 
-//---teen bedroom testing npc --//
+//---Teen Phase: Mind, has NPCS --//
 class TeenMind extends PNGRoom {
     // preload() gets called once upon startup
     preload() {
@@ -573,7 +556,7 @@ class TeenMind extends PNGRoom {
         this.drawY = height / 2 - 40;
 
         // load the animation just one time
-        this.NPC1 = createSprite((width / 2)+250, 170, 100, 100);
+        this.NPC1 = createSprite((width / 2) + 250, 170, 100, 100);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/glitchNPC1.png', 'assets/NPCs/glitchNPC2.png'));
 
 
@@ -609,7 +592,7 @@ class TeenMind extends PNGRoom {
     }
 }
 
-//---park  testing npc --//
+//---Teen Phase: School, has NPCS --//
 class TeenSchoolRoom extends PNGRoom {
     // preload() gets called once upon startup
     preload() {
@@ -625,10 +608,10 @@ class TeenSchoolRoom extends PNGRoom {
         // load the animation just one time
         this.NPC1 = createSprite(this.drawX, this.drawY, 100, 100);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/bNPC1.png', 'assets/NPCs/bNPC1.png'));
-        
-        
+
+
         // randomly places npcs pf this group all over, nothing happens when interacted
-        
+
         this.NPCAnimation = loadAnimation('assets/NPCs/dNPC1.png', 'assets/NPCs/dNPC1.png');
 
         // this is a type from p5play, so we can do operations on all sprites
@@ -709,11 +692,11 @@ class AdultAptRoom extends PNGRoom {
         this.drawY = height / 2 - 40;
 
         // load the animation just one time
-        this.NPC1 = createSprite(width /2, height / 2-60, 100, 100);
-        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/eNPC1.png', 'assets/NPCs/eNPC1.png'));
-        
-        
-        this.NPC2 = createSprite(width / 2- 100, height/2-60, 100, 100);
+        this.NPC1 = createSprite(width / 2, height / 2 - 60, 100, 100);
+        this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/eNPC1.png', 'assets/NPCs/eNPC2.png'));
+
+
+        this.NPC2 = createSprite(width / 2 - 100, height / 2 - 60, 100, 100);
         this.NPC2.addAnimation('regular', loadAnimation('assets/NPCs/fNPC1.png', 'assets/NPCs/fNPC1.png'));
 
 
@@ -739,9 +722,6 @@ class AdultAptRoom extends PNGRoom {
     draw() {
         // PNG room draw
         super.draw();
-
-        // draws all the sprites in the group
-        //this.weirdNPCSprite.draw();
         drawSprite(this.NPC1)
         drawSprite(this.NPC2)
         playerSprite.overlap(this.NPC1, talkToWeirdy);
@@ -754,7 +734,7 @@ class AdultAptRoom extends PNGRoom {
 }
 
 
-//---adult party  testing npc --//
+//---Adult Phase: Party, has NPCS --//
 class AdultPartyRoom extends PNGRoom {
     // preload() gets called once upon startup
     // We load ONE animation and create 20 NPCs
@@ -762,12 +742,12 @@ class AdultPartyRoom extends PNGRoom {
     preload() {
         // this is our image, we will load when we enter the room
         this.talkBubble = null;
-//        this.talkedToNPC = false; // only draw when we run into it
+        //        this.talkedToNPC = false; // only draw when we run into it
         talkedToWeirdNPC = false;
-        
+
         // randomly places npcs pf this group all over, nothing happens when interacted
-        
-        this.NPCAnimation = loadAnimation('assets/NPCs/aNPC1.png', 'assets/NPCs/aNPC1.png');
+
+        this.NPCAnimation = loadAnimation('assets/NPCs/aNPC1.png', 'assets/NPCs/aNPC2.png');
 
         // this is a type from p5play, so we can do operations on all sprites
         // at once
@@ -783,8 +763,8 @@ class AdultPartyRoom extends PNGRoom {
         // this will place them randomly in the room
         for (let i = 0; i < this.numNPCs; i++) {
             // random x and random y poisiton for each sprite
-            let randX = random(width/2-50, width - 100);
-            let randY = random(height/2, height - 100);
+            let randX = random(width / 2 - 50, width - 100);
+            let randY = random(height / 2, height - 100);
 
             // create the sprite
             this.NPCSprites[i] = createSprite(randX, randY, 40, 40);
@@ -825,11 +805,7 @@ class AdultPartyRoom extends PNGRoom {
         super.draw();
 
         // draws all the sprites in the group
-        //this.weirdNPCSprite.draw();
         this.NPCgroup.draw();
-//        drawSprite(this.NPC1)
-        // draws all the sprites in the group - 
-        //drawSprites(this.weirdNPCgroup);//.draw();
 
         // checks for overlap with ANY sprite in the group, if this happens
         // talk() function gets called
@@ -843,7 +819,7 @@ class AdultPartyRoom extends PNGRoom {
 }
 
 
-//---adult apt  testing npc --//
+//---Adult Phase: Mind, has NPCS --//
 class AdultMindRoom extends PNGRoom {
     // preload() gets called once upon startup
     // We load ONE animation and create 20 NPCs
@@ -859,7 +835,7 @@ class AdultMindRoom extends PNGRoom {
         this.drawY = height / 2 - 40;
 
         // load the animation just one time
-        this.NPC1 = createSprite(width /2, height / 2-180, 130, 130);
+        this.NPC1 = createSprite(width / 2, height / 2 - 180, 130, 130);
         this.NPC1.addAnimation('regular', loadAnimation('assets/NPCs/adultNPC1.png', 'assets/NPCs/adultNPC1.png'));
 
 
@@ -885,9 +861,6 @@ class AdultMindRoom extends PNGRoom {
     draw() {
         // PNG room draw
         super.draw();
-
-        // draws all the sprites in the group
-        //this.weirdNPCSprite.draw();
         drawSprite(this.NPC1)
         playerSprite.overlap(this.NPC1, talkToWeirdy);
 

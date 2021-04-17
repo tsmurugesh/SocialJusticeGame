@@ -17,4 +17,4 @@ ID,StateName,ClassName,PNGFilename,CollisionFilename
 15,AdultBedroom,PNGRoom,assets/adult_bedroom.png,assets/child_bedroom_cl.csv,
 16,AdultParty,AdultPartyRoom,assets/adult_party.png,assets/adult_party_cl.csv,
 17,AdultMind,AdultMindRoom,assets/adult_mind.png,assets/adult_mind_cl.csv
-
+18,Finish,PNGRoom,assets/about3.png,

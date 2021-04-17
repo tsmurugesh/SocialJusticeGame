@@ -4,6 +4,7 @@ Instructions,,,,AboutNext,,Instructions2
 Instructions2,,,,StartGame,,Start
 ChildMind,,,,MoveToTeen,,TeenKitchen
 TeenMind,,,,MoveToAdult,,AdultApt
+AdultMind,,,,FinishGame,,Finish
 ChildBedroom,,,,MoveToChildMind,,ChildMind
 TeenBedroom,,,,MoveToTeenMind,,TeenMind
 AdultBedroom,,,,MoveToAdultMind,,AdultMind
@@ -23,6 +24,7 @@ AdultApt,,,,,E,AdultParty
 AdultApt,,,,,W,AdultBedroom
 AdultBedroom,,,,,E,AdultApt
 AdultParty,,,,,W,AdultApt
+
 
 
 
