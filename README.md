@@ -1,5 +1,5 @@
 # Social Justice Game
-#### by Tanvi Murugesj
+#### by Tanvi Murugesh
 https://xarts.usfca.edu/~tsmurugesh/SocialJusticeGame/
 
 
